@@ -80,8 +80,9 @@ namespace GetVSTSBuildUsage.Tests
             var result = Program.GetMaxFinishTime(futureTime);
 
             var afterCall = DateTime.Now;
-            Assert.IsTrue(result >= beforeCall, "Expected the result to be no earlier than the call start time.");
-            Assert.IsTrue(result <= afterCall, "Expected the result to be no later than the call end time.");
+            Assert.IsTrue(result.HasValue, "Expected a maximum finish time.");
+            Assert.IsTrue(result.Value >= beforeCall, "Expected the result to be no earlier than the call start time.");
+            Assert.IsTrue(result.Value <= afterCall, "Expected the result to be no later than the call end time.");
         }
     }
 }
