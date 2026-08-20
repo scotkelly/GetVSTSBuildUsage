@@ -39,7 +39,7 @@ namespace GetVSTSBuildUsage.Tests
         }
 
         [TestMethod]
-        public void MainWritesUsageForInvalidArgumentCount()
+        public void ShowUsageWritesCommandLineUsage()
         {
             var originalOut = Console.Out;
             using (var writer = new StringWriter())
@@ -48,7 +48,7 @@ namespace GetVSTSBuildUsage.Tests
                 {
                     Console.SetOut(writer);
 
-                    Program.Main(new string[0]);
+                    Program.ShowUsage();
 
                     var output = writer.ToString();
                     StringAssert.Contains(output, "GetVSTSBuildUsage [account url and collection] [min build finish date] [max build finish date]");

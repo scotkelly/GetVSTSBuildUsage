@@ -75,7 +75,7 @@ namespace GetVSTSBuildUsage
             return maxTime;
         }
 
-        private static void ShowUsage()
+        internal static void ShowUsage()
         {
             Console.WriteLine("GetVSTSBuildUsage [account url and collection] [min build finish date] [max build finish date]");
             Console.WriteLine("Example: GetVSTSBuildUsage http://myaccount.visualstudio.com/DefaultCollection 1/1/2016 1/31/2016");
