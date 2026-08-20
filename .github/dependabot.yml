@@ -1,0 +1,28 @@
+version: 2
+updates:
+  - package-ecosystem: nuget
+    directory: /GetVSTSBuildUsage
+    target-branch: master
+    schedule:
+      interval: weekly
+      day: monday
+      time: "04:00"
+    open-pull-requests-limit: 5
+
+  - package-ecosystem: nuget
+    directory: /GetVSTSBuildUsage.Tests
+    target-branch: master
+    schedule:
+      interval: weekly
+      day: monday
+      time: "04:15"
+    open-pull-requests-limit: 5
+
+  - package-ecosystem: github-actions
+    directory: /
+    target-branch: master
+    schedule:
+      interval: weekly
+      day: tuesday
+      time: "04:00"
+    open-pull-requests-limit: 5

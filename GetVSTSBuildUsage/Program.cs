@@ -7,9 +7,9 @@ namespace GetVSTSBuildUsage
 {
     class Program
     {
-        static void Main(string[] args)
+        internal static void Main(string[] args)
         {
-            if (args.Length != 3)
+            if (!HasValidArguments(args))
             {
                 ShowUsage();
                 return;
@@ -62,7 +62,12 @@ namespace GetVSTSBuildUsage
             }
         }
 
-        private static DateTime? GetMaxFinishTime(DateTime maxTime)
+        internal static bool HasValidArguments(string[] args)
+        {
+            return args.Length == 3;
+        }
+
+        internal static DateTime? GetMaxFinishTime(DateTime maxTime)
         {
             if (maxTime > DateTime.Now)
                 return DateTime.Now;
@@ -70,7 +75,7 @@ namespace GetVSTSBuildUsage
             return maxTime;
         }
 
-        private static void ShowUsage()
+        internal static void ShowUsage()
         {
             Console.WriteLine("GetVSTSBuildUsage [account url and collection] [min build finish date] [max build finish date]");
             Console.WriteLine("Example: GetVSTSBuildUsage http://myaccount.visualstudio.com/DefaultCollection 1/1/2016 1/31/2016");
